@@ -1,0 +1,15 @@
+!!! run mock/main.go before execute benchmark
+go run mock/main.go
+
+goos: linux
+goarch: amd64
+pkg: dev.azure.com/acustombot/CustomBotPlatform/_git/httpclient
+cpu: AMD Ryzen 5 4600H with Radeon Graphics
+
+Benchmark_callWithHTTPClient-12
+20025	     57792 ns/op	       0 B/op	       0 allocs/op
+
+Benchmark_callWithDefaultClient-12
+10788	    108782 ns/op	    3455 B/op	      41 allocs/op
+
+With basic benchmark, call api with httpclient lib has x2 performance over http.Client{}
